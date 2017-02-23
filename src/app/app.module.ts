@@ -2,17 +2,31 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
+import { HeroesComponent } from './heroes/heroes.component';
+import { VillainsComponent } from './villains/villains.component';
+import { PowersComponent } from './heroes/powers/powers.component';
+
+const appRoutes: Routes = [
+  {path: 'Heroes', component: HeroesComponent},
+  {path: 'Villains', component: VillainsComponent},
+  {path: 'Heroes/Powers', component: PowersComponent}
+]
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeroesComponent,
+    VillainsComponent,
+    PowersComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]
